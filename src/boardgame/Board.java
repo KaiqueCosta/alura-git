@@ -31,14 +31,14 @@ public class Board {
 	}
 	
 	public Piece piece (Position position) {
-		if (thereIsApiece(position)) {
+		if (!positionExists(position)) {
 			throw new BoardException("Position not on the board");
 		}
 		return pieces[position.getRow()][position.getColumn()];
 	}
 	
 	public void placePiece(Piece piece, Position position){
-		if (!positionExists(position)) {
+		if (thereIsApiece(position)) {
 			throw new BoardException("Position not on the board" + position);
 		}
 		pieces[position.getRow()][position.getColumn()] = piece;
